@@ -1,0 +1,12 @@
+{
+    "name": "OpenHab-Node-Red-Rules",
+    "description": "Node red rules for Openhab2",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flows_openHABianPi.json",
+            "credentialsFile": "flows_openHABianPi_cred.json"
+        }
+    }
+}
