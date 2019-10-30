@@ -7,7 +7,7 @@
         "node-red-contrib-openhab-v2": "1.4.1",
         "node-red-contrib-openhab2": "1.1.5",
         "node-red-contrib-stoptimer": "0.0.7",
-        "node-red-dashboard": "2.14.0",
+        "node-red-dashboard": "2.17.1",
         "node-red-node-random": "0.1.2"
     },
     "node-red": {
