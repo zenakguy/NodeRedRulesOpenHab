@@ -8,7 +8,10 @@
         "node-red-contrib-openhab2": "1.1.5",
         "node-red-contrib-stoptimer": "0.0.7",
         "node-red-dashboard": "2.14.0",
-        "node-red-node-random": "0.1.2"
+        "node-red-node-random": "0.1.2",
+        "node-red-contrib-ibm-watson-iot": "0.2.8",
+        "node-red-contrib-bigtimer": "2.1.9",
+        "node-red-contrib-alexa-remote2": "2.3.3"
     },
     "node-red": {
         "settings": {
