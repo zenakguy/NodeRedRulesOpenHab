@@ -33,7 +33,7 @@ Number Zoo_Power_3_HK "zoo power three" <energy> (gPower) [ "Sensor" ]
 Switch Zoo_Port_4_HK  "zoo port four" <switch> (gAll,F2_Office) [ "Lighting"]
 Number Zoo_Power_4_HK "zoo power four" <energy> (gPower) [ "Sensor" ]
 Switch Zoo_Port_5_HK  "zoo port five"<switch> (gAll,F2_Office) [ "Lighting" ]
-Number Zoo_Power_5_HK "zoo power five" <energy> (gPower) [ "Sensor" ]
+Number Zoo_Power_5_HK               "zoo power five" <energy> (gPower) [ "Sensor" ]
 
 Switch ZooZ_2Port_Both_HK           "Zooz 2port both" <switch> (gAll) [ "Plug" ]
 Switch ZooZ_2Port_One_HK            "Zooz 2 port One" <switch> (gAll) [ "Plug" ]
