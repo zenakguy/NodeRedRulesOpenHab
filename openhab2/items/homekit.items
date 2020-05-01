@@ -35,17 +35,17 @@ Number Zoo_Power_4_HK "zoo power four" <energy> (gPower) [ "Sensor" ]
 Switch Zoo_Port_5_HK  "zoo port five"<switch> (gAll,F2_Office) [ "Lighting" ]
 Number Zoo_Power_5_HK "zoo power five" <energy> (gPower) [ "Sensor" ]
 
-Switch ZooZ_2Port_Both_HK             "Zooz 2port both" <switch> (gAll) [ "Plug" ]
-Switch ZooZ_2Port_One_HK              "Zooz 2 port One" <switch> (gAll) [ "Plug" ]
-Switch ZooZ_2Port_Two_HK              "Zooz 2 Port Two" <switch> (gAll) [ "Plug" ] 
-Contact KitchenDoor_HK "Kitchen Motion" <door> (gAlarm, FF_Kitchen) [ "Door" ]
-Switch Console "Console" (gFF) {WOL="192.168.0.255#b8-27-eb-29-4a-67", exec=">[OFF:net rpc shutdown -C MESSAGE -I 192.168.10.166 pi%%zenguru5 -f -t 120]"}
-Switch NestCam_HK "Nest Cam" <switch> (gFF) [ "Sensor" ]
-Switch VoicePrompt_HK "Voice Prompt" <switch>  [ "Lighting" ]
-// Dimmer HueLightBar_HK "Light Bar" <switch> (gFF, F2_Office) [ "Lighting" ]
-Dimmer Huelivingroom_HK "Living room Lamp" <switch> (gAll, FF_LivingRoom) [ "Lighting" ]
+Switch ZooZ_2Port_Both_HK           "Zooz 2port both" <switch> (gAll) [ "Plug" ]
+Switch ZooZ_2Port_One_HK            "Zooz 2 port One" <switch> (gAll) [ "Plug" ]
+Switch ZooZ_2Port_Two_HK            "Zooz 2 Port Two" <switch> (gAll) [ "Plug" ] 
+Contact KitchenDoor_HK              "Kitchen Motion" <door> (gAlarm, FF_Kitchen) [ "Door" ]
+Switch Console                      "Console" (gFF) {WOL="192.168.0.255#b8-27-eb-29-4a-67", exec=">[OFF:net rpc shutdown -C MESSAGE -I 192.168.10.166 pi%%zenguru5 -f -t 120]"}
+Switch NestCam_HK                   "Nest Cam" <switch> (gFF) [ "Sensor" ]
+Switch VoicePrompt_HK               "Voice Prompt" <switch>  [ "Lighting" ]
+// Dimmer HueLightBar_HK            "Light Bar" <switch> (gFF, F2_Office) [ "Lighting" ]
+Dimmer Huelivingroom_HK             "Living room Lamp" <switch> (gAll, FF_LivingRoom) [ "Lighting" ]
 Dimmer HueBedroom_HK                "Bedroom night light" <switch> (gAll, F2_Bedroom) ["Lighting"] {alexa="Lighting"}
-// Dimmer HuelivingroomColor_HK "Living room color" (FF_LivingRoom) { channel="hue:0210:1:HueWhiteLamp1:color_temperature" }
+// Dimmer HuelivingroomColor_HK     "Living room color" (FF_LivingRoom) { channel="hue:0210:1:HueWhiteLamp1:color_temperature" }
 Dimmer HuelivingroomColor_HK        "Living room color"           (gAll, FF_LivingRoom)   { channel="hue:0100:001788a87e82:1:color_temperature" }
 
 Group  gLightBar                    "Light Bar"                                                       {                   alexa="Endpoint.Light"}
