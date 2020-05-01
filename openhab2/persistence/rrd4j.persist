@@ -1,0 +1,12 @@
+Strategies {
+             // for rrd charts, chron strategy
+             everyMinute : "0 * * * * ?"
+
+             default = everyChange
+
+            }
+
+Items {
+        // Persist items in the gHistory group every minute
+        gHistory* : strategy = everyUpdate, everyMinute
+       }

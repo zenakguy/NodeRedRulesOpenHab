@@ -1,0 +1,26 @@
+sitemap 212A label="212A" {
+    Frame label="First Floor" icon="firstfloor" {
+        Group item=FF_Dining
+        Group item=FF_LivingRoom
+        Group item=FF_Kitchen
+    }
+
+    Frame label="Second Floor" icon="attic" {
+        Group item=F2_Bedroom
+        Group item=F2_Office
+    }
+
+    Frame label="Outside" icon="garden" {
+        Group item=OU_Backyard
+    }
+
+    Frame {
+        Text label="Office Light" icon="light" {
+            Default item=Zooz_Port_1_HK label="Office Light"
+        }
+
+        Text label="Motion Sensor" icon="motion" {
+            Default item=FF_Dining_Motion label="Dining"
+        }
+    }
+}

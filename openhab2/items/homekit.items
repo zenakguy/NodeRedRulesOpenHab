@@ -1,0 +1,88 @@
+
+Group FF_Dining
+Group FF_LivingRoom
+Group FF_Kitchen
+Group F2_Bedroom
+Group F2_Office
+Group OU_Backyard
+
+Group gMyOpenhab // for items that are exposed to external items
+Group gChart  // for items to persist for charting
+Group gHistory // for times to preserve their history
+//Group gRestore // for Items to restore on startup (currently everything so commented out)
+Switch LivingroomLamp_HK "Lamp" <light> (gAll, FF_LivingRoom) [ "Lighting" ]
+Switch YardOutlet_HK "yard" <switch> (gAll, OU_Backyard) [ "Lighting" ]
+Switch BedroomLamp_HK "Bedroom Lamp" <light> (gAll,F2_Bedroom) [ "Lighting" ] {alexa="Switchable"}
+Number GroundTemperature_HK "Temperature" <temperature> (gTemps, gHistory) [ "CurrentTemperature" ]
+Number UpstairsTemperature_HK "Bedroom Temperature" <temperature> (gTemps, F2_Office) [ "CurrentTemperature" ]
+Number GroundHumidity_HK "Humidity" <Humidity> (gHumidity, gHistory, FF_Dining ) [ "CurrentHumidity" ] 
+Number UpstairsHumidity_HK "Bedroom Humidity" <humidity> (gHumidity, gHistory, F2_Office) [ "CurrentHumidity" ]
+Switch GroundMotion_HK "Motion Sensor" <motion> (gAlarm,FF_Dining) [ "Motion" ]
+Switch BedroomMotion_HK "Bedroom Motion Sensor" <motion> (gAlarm, FF_Office) [ "Motion" ]
+Switch PorchMotion_HK "Porch Motion Sensor" <motion> (gAlarm, OU_Backyard) [ "Motion" ]
+Number HuePorchMBattery_HK "Porch battery" <battery> (gBattery) [ "Sensor" ]
+
+Switch Zooz_Port_1_HK "zooz port one" <switch> (gAll,gMyOpenhab,F2_Office) [ "Lighting" ]
+Number Zooz_Power_1_HK "zooz power one" <energy> (gPower) [ "Sensor" ]
+Switch Zoo_Port_2_HK  "zoo port two" <switch> (gAll,F2_Office) 
+Number Zoo_Power_2_HK "zoo power two" <energy> (gPower) [ "Sensor" ]
+Switch Zoo_HK "zoo" <switch> (gAll) [ "Lighting" ] 
+Number Zoo_Power_HK "Zoo Power [%d]KW" <energy> (gPower) [ "Sensor" ]
+Switch Zoo_Port_3_HK  "zoo port three" <switch> (gAll,F2_Office) 
+Number Zoo_Power_3_HK "zoo power three" <energy> (gPower) [ "Sensor" ]
+Switch Zoo_Port_4_HK  "zoo port four" <switch> (gAll,F2_Office) [ "Lighting"]
+Number Zoo_Power_4_HK "zoo power four" <energy> (gPower) [ "Sensor" ]
+Switch Zoo_Port_5_HK  "zoo port five"<switch> (gAll,F2_Office) [ "Lighting" ]
+Number Zoo_Power_5_HK "zoo power five" <energy> (gPower) [ "Sensor" ]
+
+Switch ZooZ_2Port_Both_HK             "Zooz 2port both" <switch> (gAll) [ "Plug" ]
+Switch ZooZ_2Port_One_HK              "Zooz 2 port One" <switch> (gAll) [ "Plug" ]
+Switch ZooZ_2Port_Two_HK              "Zooz 2 Port Two" <switch> (gAll) [ "Plug" ] 
+Contact KitchenDoor_HK "Kitchen Motion" <door> (gAlarm, FF_Kitchen) [ "Door" ]
+Switch Console "Console" (gFF) {WOL="192.168.0.255#b8-27-eb-29-4a-67", exec=">[OFF:net rpc shutdown -C MESSAGE -I 192.168.10.166 pi%%zenguru5 -f -t 120]"}
+Switch NestCam_HK "Nest Cam" <switch> (gFF) [ "Sensor" ]
+Switch VoicePrompt_HK "Voice Prompt" <switch>  [ "Lighting" ]
+// Dimmer HueLightBar_HK "Light Bar" <switch> (gFF, F2_Office) [ "Lighting" ]
+Dimmer Huelivingroom_HK "Living room Lamp" <switch> (gAll, FF_LivingRoom) [ "Lighting" ]
+Dimmer HueBedroom_HK                "Bedroom night light" <switch> (gAll, F2_Bedroom) ["Lighting"] {alexa="Lighting"}
+// Dimmer HuelivingroomColor_HK "Living room color" (FF_LivingRoom) { channel="hue:0210:1:HueWhiteLamp1:color_temperature" }
+Dimmer HuelivingroomColor_HK        "Living room color"           (gAll, FF_LivingRoom)   { channel="hue:0100:001788a87e82:1:color_temperature" }
+
+Group  gLightBar                    "Light Bar"                                                       {                   alexa="Endpoint.Light"}
+Switch HueLightBarSwitch_HK         "WR Light Bar Switch"        <switch>     (gLightBar,F2_Office)   { channel="hue:0210:001788a87e82:3:color", alexa="Switchable"}
+Color  HueLightBarColor_HK          "Light Bar color"            <ColorLight> (gLightBar,F2_Office)   { channel="hue:0210:001788a87e82:3:color", alexa="BrightnessController.brightness,PowerController.powerState, ColorController.color" }
+Dimmer HueLightbarColorTemp_HK      "WR Light Bar Color Temp"                 (gLightBar,F2_Office)   { channel="hue:0210:001788a87e82:3:color_temperature", alexa="ColorTemperatureController.colorTemeratureInKelvin" }
+String HueLightBarAlert_HK          "WR Light Bar Alert"                      (gLightBar,F2_Office)   { channel="hue:0210:001788a87e82:3:alert"}
+Switch HueLightBarColorLoop_HK      "Light Bar Color Loop"                    (F2_Office)             { channel="hue:0210:001788a87e82:3:effect", alexa="Switchable"}
+
+Switch HueLightStripSwitch_HK       "LR Light Strip Switch"      <switch>     (F1_Livingroom)         { channel="hue:0210:001788a87e82:7:color"}
+Color  HueLightStripColor_HK        "LR Light Strip Color"       <ColorLight> (F1_LivingRoom)         { channel="hue:0210:001788a87e82:7:color"}
+Dimmer HueLightStripColorTemp_HK    "LR Light Strip Color Temp"  <dimmer>     (F1_LivingRoom)         { channel="hue:0210:001788a87e82:7:color_temperature" }
+String HueLightStripAlert_HK        "LR Light Strip Alert"       <text>       (F1_LivingRoom)         { channel="hue:0210:001788a87e82:7:alert"}
+Switch HueLightStripColorLoop_HK    "LR Light Strip Color Loop"  <switch>     (F1_LivingRoom)         { channel="hue:0210:001788a87e82:7:effect"}
+
+Switch HueTikiLampSwitch_HK         "Tiki Lamp Switch"           <switch>     (F1_LivingRoom)         { channel="hue:0210:001788a87e82:4:color" }	
+Color  HueTikiLampColor_HK          "Tiki Lamp Color"            <color>      (F1_LivingRoom)         { channel="hue:0210:001788a87e82:4:color" }
+Dimmer HueTikiLampColorTemp_HK      "Tiki Lamp Color Temp"	 <dimmer>     (F1_LivingRoom)         { channel="hue:0210:001788a87e82:4:color_temperature" }
+String HueTikiLampAlert_HK          "Tiki Lamp Alert"            <text>       (F1_LivingRoom)         { channel="hue:0210:001788a87e82:4:alert" }
+Switch HueTikiLampColorLoop_HK      "Tiki Lamp Color Loop"       <switch>     (F1_LivingRoom)         { channel="hue:0210:001788a87e82:4:effect"}
+
+
+Group:Number:SUM  gAlarm        "Active Alarms"       <motion>      (gFF)      [ "Motion" ]
+Group:Number:SUM  gPower        "Power Use"           <energy>      (gFF)      [ "Sensor" ]
+Group:Number:AVG  gHumidity     "Average Humidity"    <humidity>    (gFF)      [ "CurrentHumidity" ]
+Group:Number:AVG  gTemps        "House Temperature"   <temperature> (gHistory) [ "CurrentTemperature" ]
+Group:Number:SUM  gActive       "Active Lights [%d]"                (gHistory) [ "Lighting" ]
+Group             gAll          "All Lights"                        (gFF)      ["Lighting"]
+Group        gAlexa_TTS_Alerts  "Alexa Text"         <text>
+
+String            echo_dot_TTS  "Text to Speach"     <text>        (gAlexa_TTS_Alerts) {channel="amazonechocontrol:echo:6aef2352:G090LF1174371XGS:textToSpeech"}
+String            echo_show_TTS "Show Text to Speach"<text>        (gAlexa_TTS_Alerts) {channel="amazonechocontrol:echoshow:6aef2352:G000MW0474130KNP:textToSpeech"}
+String            echo_echo_TTS "Text to Speach Echo" <text>       (gAlexa_TTS_Alerts) {channel="amazonechocontrol:echo:6aef2352:90F0081870360573:textToSpeech"}
+String            echo_All      "Text to Speach Everywhere" <text> (gAlexa_TTS_Alerts) {channel="amazonechocontrol:echo:6aef2352:6f4d1de6d8444ca7a0c3a53551b89333"}
+
+String KitchenLockRaw_HK        "Kitcken Lock Raw Alarm" <shield> (gFF )              {channel="zwave:device:5b39abc3:node16:alarm_raw"}
+Switch KitchenLock_HK           "Kitchen Door"           <lock>   (gFF )              {channel="zwave:device:5b39abc3:node16:lock_door", alexa="LockController.lockState" [itemSensor="KitchenLockStatus_HK"]}
+Number KitchenBattery_HK        "Kitchen Battery"        <lock>   (gFF )              {channel="zwave:device:5b39abc3:node16:battery-level"}
+Contact KitchenLockSTatus_HK    "Kitchen Lock Status"    <lock>   (gFF )              {channel="zwave:device:5b39abc3:node16:alarm_access"}
+
